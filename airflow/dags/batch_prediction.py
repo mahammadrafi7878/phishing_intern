@@ -8,17 +8,17 @@ from airflow.operators.python import PythonOperator
 
 
 with DAG(
-    'phising_training',
+    'Phishing_training',
     default_args={'retries': 2},
     # [END default_args]
-    description='phiusing domain detection',
+    description='Phishing domain Detection',
     schedule_interval="@weekly",
-    start_date=pendulum.datetime(2023, 2, 10, tz="UTC"),
+    start_date=pendulum.datetime(2023, 3, 13, tz="UTC"),
     catchup=False,
     tags=['example'],
 ) as dag:
 
-
+    
     def download_files(**kwargs):
         bucket_name = os.getenv("BUCKET_NAME")
         input_dir = "/app/input_files"
@@ -32,12 +32,12 @@ with DAG(
         for file_name in os.listdir(input_dir):
             #make prediction
             start_batch_prediction(input_file_path=os.path.join(input_dir,file_name))
-
+    
     def sync_prediction_dir_to_s3_bucket(**kwargs):
         bucket_name = os.getenv("BUCKET_NAME")
         #upload prediction folder to predictionfiles folder in s3 bucket
         os.system(f"aws s3 sync /app/prediction s3://{bucket_name}/prediction_files")
-
+    
 
     download_input_files  = PythonOperator(
             task_id="download_file",
