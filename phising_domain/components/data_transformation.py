@@ -60,6 +60,8 @@ class DataTransformation:
             input_feature_train_arr=transformation_pipeline.transform(input_feature_train_df)
             input_feature_test_arr=transformation_pipeline.transform(input_feature_test_df) 
 
+
+
             logging.info(f"this data set is imbalanced dataset so need to samoling technique")
             smt=SMOTETomek(sampling_strategy='minority',random_state=77)
 
@@ -70,6 +72,7 @@ class DataTransformation:
             logging.info(f"Before resampling in testing set Input: {input_feature_test_df.shape} Target:{target_feature_test_arr.shape}")
             input_feature_test_arr,target_feature_test_arr=smt.fit_resample(input_feature_test_arr,target_feature_test_arr)
             logging.info(f"After resampling in testing set Input: {input_feature_test_arr.shape} Target:{target_feature_test_arr.shape}")
+
 
             logging.info(f"converting data new created data into an array")
             train_arr=np.c_[input_feature_train_arr,target_feature_train_arr]

@@ -40,11 +40,14 @@ class ModelEvaluation:
             logging.info(f"finding the location of transformer path and model path")
             transformer_path=self.model_resolver.get_latest_transformer_path() 
             model_path=self.model_resolver.get_latest_model_path()
+            print(transformer_path)
 
             
             logging.info(f"previous trained objects of transformar and model")
             transformer=load_object(file_path=transformer_path)
             model=load_object(file_path=model_path)
+            print(transformer)
+            print(type(transformer))
 
 
             logging.info(f"currently trained transformation and model objects")

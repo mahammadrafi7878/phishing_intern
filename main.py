@@ -7,8 +7,8 @@ file_path='/config/workspace/phising_dataset.csv'
 print(__name__)
 if __name__=="__main__":
      try:
-          #start_training_pipeliune()
-          output_file = start_batch_prediction(input_file_path=file_path)
-          print(output_file)
+          start_training_pipeliune()
+          #output_file = start_batch_prediction(input_file_path=file_path)
+          #print(output_file)
      except Exception as e:
           raise PhisingException(e,sys)

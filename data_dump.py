@@ -8,7 +8,7 @@ print(f"loading environment variable")
 load_dotenv()
 
 
-#client = pymongo.MongoClient("mongodb+srv://shaikmahammadrafi:6302593782@cluster1.zjnuzoq.mongodb.net/?retryWrites=true&w=majority") 
+#client = pymongo.MongoClient("mongodb+srv://mahammadrafishaik:6302593782@cluster0.yn2lfcd.mongodb.net/?retryWrites=true&w=majority") 
 
 
 DATABASE_NAME="phsing_domaain"
